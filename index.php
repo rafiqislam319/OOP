@@ -1,5 +1,20 @@
 <?php
+class User {
 
+     public $userName = 'jon';
+     public $userMail = 'jon@doe.com';   // property
+
+     public function addPost(){                 //this is a method 
+         return "$this->userMail";
+         
+     }
+    
+}
+
+$userOne = new User();  //this is an object // $userOne is an instance
+
+echo $userOne->userName  . '<br>';
+echo $userOne->addPost();
 
 ?>
 
