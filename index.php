@@ -1,5 +1,28 @@
 <?php
 
+class User {
+
+     public $userName;
+     public $userMail;  
+     
+     public function __construct($name, $email){
+
+        $this->userName = $name;
+        $this->userMail = $email;
+     }
+     
+}
+
+    $userOne = new User('Tom', 'tom@gmail.com');  
+    $userTwo = new User('Jerry', 'jerry@gmail.com');  
+
+
+    echo $userOne->userName . '<br>';
+    echo $userOne->userMail . '<br>';
+
+    echo $userTwo->userName . '<br>';
+    echo $userTwo->userMail;
+
 
 ?>
 
