@@ -1,21 +1,28 @@
 <?php
 
+class User {
+    private $userName;
+    private $userMail;
+
+    function __construct($name, $email) {
+        $this->userName = $name;
+        $this->userMail = $email;
+
+    }
+
+    function getName() {
+        return $this->userName;
+    }
+    function setName($name) {
+        $this->userName = $name;
+    }
+
+
+}
+$userOne = new User('jon', 'jon@example.com');
+
+$userOne->setName('Mr jon Doe');
+
+echo $userOne->getName();
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OOP PHP</title>
-</head>
-<body>
-    <?php 
-    
-    ?>
-</body>
-</html>
