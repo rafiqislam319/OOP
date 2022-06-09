@@ -1,39 +1,54 @@
-<?php
-
+<?php 
     class User {
-        public $userName;
-        protected $userEmail;   //protected property
+        public $name;
+        protected $email;   //protected property
 
-        function __construct($name, $mail) {
-            $this->userName = $name;
-            $this->userEmail = $mail;
+        function __construct($nam, $eml){
+            $this->name = $nam;
+            $this->email =$eml;   
         }
- 
-        public function message(){
-            return "$this->userEmail, send a message";
+        function getEmail(){
+            return $this->email;
         }
-
+        function message(){
+            return "$this->email The main User send the message";
+        }
+}
+    /**
+     * child class
+     */
+    class AdminUser extends User{
+        public $phone;
+        private $address;
+        function __construct($nam, $eml, $phn, $adr){
+            $this->phone = $phn;
+            $this->address = $adr;
+            parent::__construct($nam, $eml);
+        }
+        function getAddress(){
+            return $this->address;
+        }
+        function message(){
+            return "$this->email The Admin User send the message";   // if we want to access ($this->email) in this child class then $email should be public or protected, it can not be private. if we set it private in parent class, then we have to redefine it in this child class.
+        }
         
-
-    }
-        //child class
-    class AdminUser extends User {
-
-        function __construct($name, $mail) {
-            parent::__construct($name, $mail);                                                               
-        }
-        public function message(){
-            return "$this->userEmail , An Admin, send a message";
-        }
-
-
+    
     }
 
 
-    $userOne = new User('Jon', 'jon@gmail.com');
-    $userTwo = new AdminUser('Tom', 'tom@gmail.com');
 
+    $userOne = new User('Tom', 'tom@tom.com');
+    $userTwo = new AdminUser('jon', 'jon@jon.com', 121, 'Dhaka');
 
-    echo $userTwo->message() .'<br>';    // getting protected property from child class instance.
+    echo $userOne->name . '<br>';
+    echo $userOne->getEmail() . '<br>';
+
+    echo $userTwo->name . '<br>';
+    echo $userTwo->getEmail() . '<br>';
+    echo $userTwo->phone . '<br>';
+    echo $userTwo->getAddress() . '<br>';
+
+    echo $userOne->message(). '<br>';
+    echo $userTwo->message(). '<br>';  //accessing protected property.
 
 ?>
